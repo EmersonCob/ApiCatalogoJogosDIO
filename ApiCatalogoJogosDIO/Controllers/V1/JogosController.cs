@@ -11,12 +11,41 @@ namespace ApiCatalogoJogosDIO.Controllers.V1
     [ApiController]
     public class JogosController : ControllerBase
     {
-
-        public async Task<ActionResult<List<object>>> Obter()
+        [HttpGet]
+        public async Task<ActionResult<object>> Obter()
+        {
+            return Ok();
+        }
+        
+        [HttpGet("{idJogo:guid}")]
+        public async Task<ActionResult<object>> Obter(Guid idJogo)
         {
             return Ok();
 
         }
 
+        [HttpPost]
+        public async Task<ActionResult<object>> InserirJogo(object jogo)
+        {
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> AtualizarJogo(Guid idJogo, object jogo)
+        {
+            return Ok();
+        }
+
+        [HttpPatch("{idJogo:guid}/preco/{preco:double}")]
+        public async Task<ActionResult> AtualizarJogo(Guid idJogo, object jogo)
+        {
+            return Ok();
+        }
+
+        [HttpDelete("{idJogo:guid}")]
+        public async Task<ActionResult> ApagarJogo(Guid idJogo)
+        {
+            return Ok();
+        }
     }
 }
