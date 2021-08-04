@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ApiCatalogoJogosDIO.InputModel;
+using ApiCatalogoJogosDIO.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,32 +14,32 @@ namespace ApiCatalogoJogosDIO.Controllers.V1
     public class JogosController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<object>> Obter()
+        public async Task<ActionResult<JogoViewModel>> Obter()
         {
             return Ok();
         }
         
         [HttpGet("{idJogo:guid}")]
-        public async Task<ActionResult<object>> Obter(Guid idJogo)
+        public async Task<ActionResult<JogoViewModel>> Obter(Guid idJogo)
         {
             return Ok();
 
         }
 
         [HttpPost]
-        public async Task<ActionResult<object>> InserirJogo(object jogo)
+        public async Task<ActionResult<JogoViewModel>> InserirJogo(object jogo)
         {
             return Ok();
         }
 
         [HttpPut]
-        public async Task<ActionResult> AtualizarJogo(Guid idJogo, object jogo)
+        public async Task<ActionResult> AtualizarJogo(Guid idJogo, JogoInputModel jogo)
         {
             return Ok();
         }
 
         [HttpPatch("{idJogo:guid}/preco/{preco:double}")]
-        public async Task<ActionResult> AtualizarJogo(Guid idJogo, object jogo)
+        public async Task<ActionResult> AtualizarJogo(Guid idJogo, JogoInputModel jogo)
         {
             return Ok();
         }
