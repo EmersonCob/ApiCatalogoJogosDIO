@@ -1,4 +1,5 @@
 ﻿using ApiCatalogoJogosDIO.InputModel;
+using ApiCatalogoJogosDIO.Services;
 using ApiCatalogoJogosDIO.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,18 @@ namespace ApiCatalogoJogosDIO.Controllers.V1
     [ApiController]
     public class JogosController : ControllerBase
     {
+        private readonly IJogoService _jogoservice;
+
+        public JogosController(IJogoService jogoservice)
+        {
+            _jogoservice = jogoservice;
+        }
+
         [HttpGet]
         public async Task<ActionResult<JogoViewModel>> Obter()
         {
-            return Ok();
+            var result = await _jogoservice.Obter(1, 5);
+            return Ok(result);
         }
         
         [HttpGet("{idJogo:guid}")]
